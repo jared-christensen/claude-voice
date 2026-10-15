@@ -10,10 +10,11 @@ https://github.com/user-attachments/assets/9edcc3e8-ddf4-4101-9f19-7068b0d174d9
 
 ## What is this?
 
-A small Claude Code plugin that turns your terminal into a conversation you can listen to. Three things make it work well:
+A small Claude Code plugin that turns your terminal into a conversation you can listen to. A few things make it work well:
 
 - **Claude writes for the ear.** While voice is on, a hook tells Claude on every message that its reply will be read aloud. So it leads with the answer and uses short, plain sentences, with no tables, bullet lists or markdown. Links and commands you need to see go after a `Below:` line, and they are shown but never spoken.
 - **It gets out of your way.** Opening your microphone instantly stops the speech, so you can cut in whenever you've heard enough. While your mic is open, replies play a soft ding instead of talking over you. That means it stays quiet in meetings and while you dictate.
+- **It pauses your music.** If Apple Music or Spotify is playing, it pauses while Claude talks and picks up again when it's done. Turn this off with `/spoken-replies:media`.
 - **It tells you when it needs you.** A soft ding plays when a reply finishes with voice off, and a different one plays when Claude needs permission or asks a question.
 
 Pair it with a dictation app and you can run Claude Code without touching the keyboard (see [the full loop](#talk-instead-of-type-the-full-loop)).
@@ -40,9 +41,10 @@ To see the voice and speed it uses by default, and the other voices I tried, see
 | `/spoken-replies:voice` | Turn voice on or off (no argument flips it) |
 | `/spoken-replies:ding` | Mute or unmute every sound |
 | `/spoken-replies:shh` | Stop the current speech, voice stays on |
+| `/spoken-replies:media` | Turn music pausing on or off (Apple Music and Spotify) |
 | `/spoken-replies:mic` | Turn mic awareness on or off. Off means it speaks even while your mic is open, which is handy for screen recordings and demos |
 
-Sending any new prompt also cuts off speech. Voice and sound state live in two flag files, `~/.claude/voice-off`, `~/.claude/ding-off` and `~/.claude/mic-ignore`. If one exists, that feature is off (for mic-ignore, mic awareness is off).
+Sending any new prompt also cuts off speech. Voice and sound state live in two flag files, `~/.claude/voice-off`, `~/.claude/ding-off`, `~/.claude/media-pause-off` and `~/.claude/mic-ignore`. If one exists, that feature is off (for mic-ignore, mic awareness is off).
 
 ## My settings (these are the defaults)
 
@@ -83,6 +85,10 @@ MARKER="Below:"     # text after a line with only this is never spoken
 ```
 
 `VOICE` takes one name or a list separated by `|`. The first installed voice is used, and if none are, your Mac's default voice speaks, so it always works out of the box. List what you have with `say -v '?'`.
+
+## Music pausing: what it covers
+
+It pauses **Apple Music** and **Spotify**, and only if they're already running and playing. The first time, macOS asks whether to let your terminal control them; say yes. Browser audio such as YouTube or web podcasts can't be paused this way, so those keep playing. If you want those covered too, a future version could lower the system volume instead.
 
 ## How it works
 

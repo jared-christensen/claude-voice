@@ -11,4 +11,5 @@ MARKER="Below:"     # text after a line with only this marker is never spoken
 [ -f "$HOME/.claude/voice.conf" ] && . "$HOME/.claude/voice.conf"
 VOICE_OFF_FLAG="$HOME/.claude/voice-off"
 DING_OFF_FLAG="$HOME/.claude/ding-off"
+MEDIA_OFF_FLAG="$HOME/.claude/media-pause-off"   # if present, never pause Music/Spotify
 MIC_IGNORE_FLAG="$HOME/.claude/mic-ignore"   # if present, speak even when the mic is open

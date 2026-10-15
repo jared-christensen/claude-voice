@@ -30,8 +30,10 @@ done
 
 pkill -x say
 ding "$DING_DELAY"
+[ -f "$MEDIA_OFF_FLAG" ] || { nohup "$dir/media.sh" pause >/dev/null 2>&1 & }
 nohup say "${voice_args[@]}" -r "$RATE" "[[volm $VOLUME]] $text" >/dev/null 2>&1 &
 pid=$!
 # stop speaking as soon as the mic opens
+[ -f "$MEDIA_OFF_FLAG" ] || nohup "$dir/media-resume.sh" "$pid" >/dev/null 2>&1 &
 [ -f "$MIC_IGNORE_FLAG" ] || nohup "$dir/watch-mic.sh" "$pid" >/dev/null 2>&1 &
 exit 0
