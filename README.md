@@ -94,7 +94,7 @@ Optional, but nice. Install [media-control](https://github.com/ungive/media-cont
 brew install media-control
 ```
 
-With it installed, any playing audio or video (Chrome, Safari, Podcasts, Music, Spotify and so on) pauses while Claude speaks and resumes afterward. Without it, this feature quietly does nothing and everything else works. It only resumes media it paused, and if you resume something yourself first, it leaves it alone. It uses macOS private features, so a future macOS update could break it. If that happens, turn it off with `/spoken-replies:media`.
+Pausing is on by default. The first time you start a session without the tool installed, Claude mentions it once and gives you the command. With it installed, any playing audio or video (Chrome, Safari, Podcasts, Music, Spotify and so on) pauses while Claude speaks and resumes afterward. Without it, this feature quietly does nothing and everything else works. It only resumes media it paused, and if you resume something yourself first, it leaves it alone. It uses macOS private features, so a future macOS update could break it. If that happens, turn it off with `/spoken-replies:media`.
 
 ## How it works
 

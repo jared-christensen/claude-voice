@@ -1,7 +1,7 @@
 {
   "hooks": {
     "SessionStart": [
-      { "hooks": [ { "type": "command", "command": "${CLAUDE_PLUGIN_ROOT}/scripts/mic.sh --build", "timeout": 60, "async": true } ] }
+      { "hooks": [ { "type": "command", "command": "${CLAUDE_PLUGIN_ROOT}/scripts/mic.sh --build", "timeout": 60, "async": true }, { "type": "command", "command": "${CLAUDE_PLUGIN_ROOT}/scripts/first-run.sh", "timeout": 5 } ] }
     ],
     "UserPromptSubmit": [
       { "hooks": [ { "type": "command", "command": "${CLAUDE_PLUGIN_ROOT}/scripts/voice-context.sh", "timeout": 5 } ] }
