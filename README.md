@@ -37,14 +37,14 @@ Restart Claude Code afterward, since hooks load at startup. Needs `jq` (`brew in
 | `/spoken-replies:ding` | Mute or unmute all sounds |
 | `/spoken-replies:shh` | Stop the current speech, voice stays on |
 
-Voice is **off** until you turn it on. State lives in two flag files: `~/.claude/voice-on` and `~/.claude/ding-off`.
+Voice is **on by default**, so it works right after you install and restart. State lives in two flag files, `~/.claude/voice-off` and `~/.claude/ding-off`; their presence means off.
 
 ## Configure
 
 Create `~/.claude/voice.conf` and set any of these (defaults shown):
 
 ```
-VOICE=""            # e.g. "Ava (Premium)"; empty = system default voice
+VOICE="Ava (Premium)|Ava (Enhanced)|Zoe (Premium)|Zoe (Enhanced)|Samantha"  # first installed voice wins
 RATE=200            # words per minute
 VOLUME=0.8          # speech volume, independent of system volume
 PAUSE_MS=500        # pause between paragraphs
@@ -54,7 +54,7 @@ DING_DELAY=0.5      # seconds before the ding that precedes speech
 MARKER="Below:"
 ```
 
-List installed voices with `say -v '?'`. Better ones (Ava, Zoe) are a free download in System Settings > Accessibility > Spoken Content > System Voice > Manage Voices. Premium voices ignore pitch commands but honor volume and rate. They also take about a second to start, so raise `DING_DELAY` to line the ding up with the first word.
+`VOICE` takes one name or a list separated by `|`. The first voice that is installed is used, and if none are, your Mac's default voice speaks, so it always works out of the box. List installed voices with `say -v '?'`. Better ones (Ava, Zoe) are a free download in System Settings > Accessibility > Spoken Content > System Voice > Manage Voices. Premium voices ignore pitch commands but honor volume and rate. They also take about a second to start, so raise `DING_DELAY` to line the ding up with the first word.
 
 ## How it works
 

@@ -1,6 +1,6 @@
 {
   "name": "spoken-replies",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "macOS only. Hear Claude's replies read aloud, with a done-ding, mic-aware muting, and a simple on/off switch.",
   "author": {
     "name": "Jared Christensen"

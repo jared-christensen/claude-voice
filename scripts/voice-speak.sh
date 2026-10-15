@@ -5,7 +5,7 @@ dir="$(dirname "$0")"
 . "$dir/lib.sh"
 ding() { nohup "$dir/ding.sh" done "$1" >/dev/null 2>&1 & }
 
-[ -f "$VOICE_FLAG" ] || { ding 0; exit 0; }
+[ -f "$VOICE_OFF_FLAG" ] && { ding 0; exit 0; }
 [ "$("$dir/mic.sh")" = MIC_IN_USE ] && { ding 0; exit 0; }
 msg=$(jq -r '.last_assistant_message // empty')
 [ -n "$msg" ] || { ding 0; exit 0; }
@@ -22,7 +22,11 @@ text=$(printf '%s' "$msg" | MARKER="$MARKER" PAUSE_MS="$PAUSE_MS" perl -0pe '
 ')
 
 voice_args=()
-if [ -n "$VOICE" ] && say -v '?' | grep -q "^$VOICE "; then voice_args=(-v "$VOICE"); fi
+installed=$(say -v '?')
+IFS="|" read -ra wanted <<< "$VOICE"
+for v in "${wanted[@]}"; do
+  if grep -q "^$v " <<< "$installed"; then voice_args=(-v "$v"); break; fi
+done
 
 pkill -x say
 ding "$DING_DELAY"
