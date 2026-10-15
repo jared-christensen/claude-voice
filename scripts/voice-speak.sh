@@ -29,16 +29,11 @@ for v in "${wanted[@]}"; do
 done
 
 pkill -x say
+[ -f "$MEDIA_OFF_FLAG" ] || "$dir/media.sh" pause
 ding "$DING_DELAY"
-# Duck: lower the system volume so other audio fades back, and play the speech louder to make up for it.
-speech_vol=$VOLUME; ducked=
-if [ ! -f "$DUCK_OFF_FLAG" ] && "$dir/duck.sh" start "$DUCK_LEVEL"; then
-  ducked=1
-  speech_vol=$(awk -v v="$VOLUME" -v d="$DUCK_LEVEL" 'BEGIN { x = v / d; if (x > 1) x = 1; printf "%.2f", x }')
-fi
-nohup say "${voice_args[@]}" -r "$RATE" "[[volm $speech_vol]] $text" >/dev/null 2>&1 &
+nohup say "${voice_args[@]}" -r "$RATE" "[[volm $VOLUME]] $text" >/dev/null 2>&1 &
 pid=$!
-[ -n "$ducked" ] && nohup "$dir/duck.sh" restore-after "$pid" >/dev/null 2>&1 &
+[ -f "$MEDIA_OFF_FLAG" ] || { "$dir/media.sh" claim "$pid"; nohup "$dir/media.sh" resume "$pid" >/dev/null 2>&1 & }
 # stop speaking as soon as the mic opens
 [ -f "$MIC_IGNORE_FLAG" ] || nohup "$dir/watch-mic.sh" "$pid" >/dev/null 2>&1 &
 exit 0
