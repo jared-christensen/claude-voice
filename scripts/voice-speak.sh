@@ -28,5 +28,5 @@ ding "$DING_DELAY"
 nohup say "${voice_args[@]}" -r "$RATE" "[[volm $VOLUME]] $text" >/dev/null 2>&1 &
 pid=$!
 # stop speaking as soon as the mic opens
-nohup bash -c 'while kill -0 '"$pid"' 2>/dev/null; do [ "$("'"$dir"'/mic.sh)" = MIC_IN_USE ] && kill '"$pid"' && break; sleep 0.5; done' >/dev/null 2>&1 &
+nohup "$dir/watch-mic.sh" "$pid" >/dev/null 2>&1 &
 exit 0
