@@ -30,7 +30,7 @@ In Claude Code, run:
 
 Then **restart Claude Code** (hooks load at startup). That's it. Voice is on by default and the next reply will be read to you.
 
-For pausing your media, also run `brew install media-control` (optional). You need `jq` (`brew install jq`) and the Xcode command line tools (`xcode-select --install`). The tools let a tiny mic-detection helper compile on first run. Without them, speech still works but mic detection is skipped.
+For pausing your media, also run `brew install media-control` (optional). You need `jq` (already built in to macOS 15 and later; otherwise `brew install jq`) and the Xcode command line tools (`xcode-select --install`). The tools let a tiny mic-detection helper compile on first run. Without them, speech still works but mic detection is skipped.
 
 To see the voice and speed it uses by default, and the other voices I tried, see [my settings](#my-settings-these-are-the-defaults).
 
