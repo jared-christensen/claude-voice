@@ -41,7 +41,7 @@ Sending any new prompt also cuts off speech. Voice and sound state live in two f
 
 ## My settings (a good place to start)
 
-I use **Ava (Premium)** at **speed 285**, with the speech volume turned down to 60% so I can keep my system volume up. To use the same, create `~/.claude/voice.conf`:
+I use **Ava (Premium)** at **speed 285** (the default), with the speech volume turned down to 60% so I can keep my system volume up. To use the same, create `~/.claude/voice.conf`:
 
 ```
 VOICE="Ava (Premium)"
@@ -61,7 +61,7 @@ Voices I tried:
 | **Alex** | Built in to every Mac, starts fastest, and holds up best at very high speeds. Less natural, but a great fallback. |
 | Evan (Enhanced), Samantha | Fine, a step below the others. |
 
-About speed: the default of 200 is relaxed. 260 is brisk, 285 is about as fast as I find comfortable, and past roughly 300 words start to blur. Try 235 first if 285 sounds like too much.
+About speed: the default is 285, which is brisk but clear, and about as fast as I find comfortable. Past roughly 300 words start to blur. If that's too fast, set `RATE=235` (or 200 for a relaxed pace) in `~/.claude/voice.conf`.
 
 ## Talk instead of type: the full loop
 
@@ -75,7 +75,7 @@ Everything is optional. Put overrides in `~/.claude/voice.conf` (defaults shown)
 
 ```
 VOICE="Ava (Premium)|Ava (Enhanced)|Zoe (Premium)|Zoe (Enhanced)|Alex|Samantha"
-RATE=200            # words per minute
+RATE=285            # words per minute
 VOLUME=0.8          # speech volume, independent of system volume
 PAUSE_MS=500        # pause between paragraphs
 DING_SOUND=Pop      # any name from /System/Library/Sounds
