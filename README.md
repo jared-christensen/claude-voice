@@ -36,8 +36,9 @@ To see the voice and speed it uses by default, and the other voices I tried, see
 | `/spoken-replies:voice` | Turn voice on or off (no argument flips it) |
 | `/spoken-replies:ding` | Mute or unmute every sound |
 | `/spoken-replies:shh` | Stop the current speech, voice stays on |
+| `/spoken-replies:mic` | Turn mic awareness on or off. Off means it speaks even while your mic is open, which is handy for screen recordings and demos |
 
-Sending any new prompt also cuts off speech. Voice and sound state live in two flag files, `~/.claude/voice-off` and `~/.claude/ding-off`. If one exists, that feature is off.
+Sending any new prompt also cuts off speech. Voice and sound state live in two flag files, `~/.claude/voice-off`, `~/.claude/ding-off` and `~/.claude/mic-ignore`. If one exists, that feature is off (for mic-ignore, mic awareness is off).
 
 ## My settings (these are the defaults)
 

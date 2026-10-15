@@ -6,7 +6,7 @@ dir="$(dirname "$0")"
 ding() { nohup "$dir/ding.sh" done "$1" >/dev/null 2>&1 & }
 
 [ -f "$VOICE_OFF_FLAG" ] && { ding 0; exit 0; }
-[ "$("$dir/mic.sh")" = MIC_IN_USE ] && { ding 0; exit 0; }
+[ ! -f "$MIC_IGNORE_FLAG" ] && [ "$("$dir/mic.sh")" = MIC_IN_USE ] && { ding 0; exit 0; }
 msg=$(jq -r '.last_assistant_message // empty')
 [ -n "$msg" ] || { ding 0; exit 0; }
 
@@ -33,5 +33,5 @@ ding "$DING_DELAY"
 nohup say "${voice_args[@]}" -r "$RATE" "[[volm $VOLUME]] $text" >/dev/null 2>&1 &
 pid=$!
 # stop speaking as soon as the mic opens
-nohup "$dir/watch-mic.sh" "$pid" >/dev/null 2>&1 &
+[ -f "$MIC_IGNORE_FLAG" ] || nohup "$dir/watch-mic.sh" "$pid" >/dev/null 2>&1 &
 exit 0

@@ -11,3 +11,4 @@ MARKER="Below:"     # text after a line with only this marker is never spoken
 [ -f "$HOME/.claude/voice.conf" ] && . "$HOME/.claude/voice.conf"
 VOICE_OFF_FLAG="$HOME/.claude/voice-off"
 DING_OFF_FLAG="$HOME/.claude/ding-off"
+MIC_IGNORE_FLAG="$HOME/.claude/mic-ignore"   # if present, speak even when the mic is open
