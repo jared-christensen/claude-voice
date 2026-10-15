@@ -1,0 +1,14 @@
+{
+  "name": "jared-tools",
+  "owner": {
+    "name": "Jared Christensen"
+  },
+  "plugins": [
+    {
+      "name": "spoken-replies",
+      "source": "./",
+      "description": "Hear Claude's replies read aloud on macOS, with a done-ding, mic-aware muting, and a simple on/off switch."
+    }
+  ],
+  "description": "Small Claude Code add-ons by Jared Christensen."
+}
