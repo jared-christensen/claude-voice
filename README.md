@@ -4,6 +4,10 @@
 
 > **macOS only.** It uses the built-in `say` and `afplay` commands and CoreAudio. On Windows or Linux the scripts do nothing and exit quietly, so installing it there is harmless but pointless.
 
+[![Watch the 40-second demo](docs/demo-poster.png)](docs/demo.mp4)
+
+*Click to watch the 40-second demo (with sound).*
+
 ## What is this?
 
 A small Claude Code plugin that turns your terminal into a conversation you can listen to. Three things make it work well:
