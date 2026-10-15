@@ -1,6 +1,6 @@
 # Shared defaults. Override any of these in ~/.claude/voice.conf
 [ "$(uname)" = Darwin ] || exit 0  # macOS only
-VOICE="Ava (Premium)|Ava (Enhanced)|Zoe (Premium)|Zoe (Enhanced)|Samantha"  # first installed one wins; none = system default
+VOICE="Ava (Premium)|Ava (Enhanced)|Zoe (Premium)|Zoe (Enhanced)|Alex|Samantha"  # first installed one wins; none = system default
 RATE=200            # words per minute
 VOLUME=0.8          # speech volume, 0.0 - 1.0 (independent of system volume)
 PAUSE_MS=500        # pause between paragraphs
