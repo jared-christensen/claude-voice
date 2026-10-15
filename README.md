@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/9edcc3e8-ddf4-4101-9f19-7068b0d174d9
+
 # claude-voice (spoken-replies)
 
 **Claude Code that talks back.** When Claude finishes a reply, your Mac reads it to you out loud.
