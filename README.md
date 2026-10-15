@@ -1,16 +1,12 @@
-
-
-https://github.com/user-attachments/assets/9edcc3e8-ddf4-4101-9f19-7068b0d174d9
-
 # claude-voice (spoken-replies)
 
 **Claude Code that talks back.** When Claude finishes a reply, your Mac reads it to you out loud.
 
 > **macOS only.** It uses the built-in `say` and `afplay` commands and CoreAudio. On Windows or Linux the scripts do nothing and exit quietly, so installing it there is harmless but pointless.
 
-[![Watch the 40-second demo](docs/demo-poster.png)](docs/demo.mp4)
+https://github.com/user-attachments/assets/9edcc3e8-ddf4-4101-9f19-7068b0d174d9
 
-*Click to watch the 40-second demo (with sound).*
+🔊 *The video starts muted. Click the speaker icon to turn the sound on.*
 
 ## What is this?
 
