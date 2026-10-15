@@ -27,7 +27,7 @@ Then **restart Claude Code** (hooks load at startup). That's it. Voice is on by 
 
 You need `jq` (`brew install jq`) and the Xcode command line tools (`xcode-select --install`). The tools let a tiny mic-detection helper compile on first run. Without them, speech still works but mic detection is skipped.
 
-For the voice I use and the speed I like, jump to [my settings](#my-settings-a-good-place-to-start).
+To see the voice and speed it uses by default, and the other voices I tried, see [my settings](#my-settings-these-are-the-defaults).
 
 ## Use it
 
@@ -39,16 +39,9 @@ For the voice I use and the speed I like, jump to [my settings](#my-settings-a-g
 
 Sending any new prompt also cuts off speech. Voice and sound state live in two flag files, `~/.claude/voice-off` and `~/.claude/ding-off`. If one exists, that feature is off.
 
-## My settings (a good place to start)
+## My settings (these are the defaults)
 
-I use **Ava (Premium)** at **speed 285** (the default), with the speech volume turned down to 60% so I can keep my system volume up. To use the same, create `~/.claude/voice.conf`:
-
-```
-VOICE="Ava (Premium)"
-RATE=285
-VOLUME=0.6
-DING_DELAY=1
-```
+The defaults are the settings I use every day, so most people never need to touch anything: **Ava (Premium)** at **speed 285**, with the speech volume at 60% so I can keep my system volume up, and a one-second ding delay so the ding lands as she starts talking. If Ava isn't installed, it falls back down a list (Zoe, then Alex, then Samantha, then your Mac's default voice).
 
 Ava is a free download: System Settings > Accessibility > Spoken Content > System Voice > Manage Voices, then pick Ava (Premium). Premium voices take about a second to start, which is why `DING_DELAY=1` lines the ding up with her first word.
 
@@ -71,16 +64,16 @@ Opening your mic to dictate cuts off whatever is being read, so interrupting is 
 
 ## Configure
 
-Everything is optional. Put overrides in `~/.claude/voice.conf` (defaults shown):
+Everything is optional. To change anything, create `~/.claude/voice.conf` and set just the lines you want (defaults shown):
 
 ```
 VOICE="Ava (Premium)|Ava (Enhanced)|Zoe (Premium)|Zoe (Enhanced)|Alex|Samantha"
 RATE=285            # words per minute
-VOLUME=0.8          # speech volume, independent of system volume
+VOLUME=0.6          # speech volume, independent of system volume
 PAUSE_MS=500        # pause between paragraphs
 DING_SOUND=Pop      # any name from /System/Library/Sounds
 NOTIFY_SOUND=Bottle # plays when Claude needs permission or has a question
-DING_DELAY=0.5      # seconds before the ding that precedes speech
+DING_DELAY=1        # seconds before the ding that precedes speech
 MARKER="Below:"     # text after a line with only this is never spoken
 ```
 
