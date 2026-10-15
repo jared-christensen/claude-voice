@@ -1,10 +1,17 @@
 {
   "name": "spoken-replies",
-  "version": "1.0.1",
-  "description": "Hear Claude's replies read aloud on macOS, with a done-ding, mic-aware muting, and a simple on/off switch.",
-  "author": { "name": "Jared Christensen" },
+  "version": "1.0.2",
+  "description": "macOS only. Hear Claude's replies read aloud, with a done-ding, mic-aware muting, and a simple on/off switch.",
+  "author": {
+    "name": "Jared Christensen"
+  },
   "homepage": "https://github.com/jared-christensen/claude-voice",
   "repository": "https://github.com/jared-christensen/claude-voice",
   "license": "MIT",
-  "keywords": ["voice", "tts", "macos", "notifications"]
+  "keywords": [
+    "voice",
+    "tts",
+    "macos",
+    "notifications"
+  ]
 }

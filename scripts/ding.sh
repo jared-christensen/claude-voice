@@ -1,4 +1,5 @@
 #!/bin/bash
+[ "$(uname)" = Darwin ] || exit 0  # macOS only
 # usage: ding.sh done|notify [delay-seconds]
 . "$(dirname "$0")/lib.sh"
 [ -f "$DING_OFF_FLAG" ] && exit 0

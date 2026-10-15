@@ -1,4 +1,5 @@
 # Shared defaults. Override any of these in ~/.claude/voice.conf
+[ "$(uname)" = Darwin ] || exit 0  # macOS only
 VOICE=""            # e.g. "Ava (Premium)"; empty = system default voice
 RATE=200            # words per minute
 VOLUME=0.8          # speech volume, 0.0 - 1.0 (independent of system volume)

@@ -1,4 +1,5 @@
 #!/bin/bash
+[ "$(uname)" = Darwin ] || exit 0  # macOS only
 # Prints MIC_IN_USE or MIC_NOT_IN_USE. Compiles the Swift helper on first use (needs Xcode command line tools).
 # usage: mic.sh [--build]
 src="$(dirname "$0")/mic-in-use.swift"

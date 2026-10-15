@@ -7,7 +7,7 @@
     {
       "name": "spoken-replies",
       "source": "./",
-      "description": "Hear Claude's replies read aloud on macOS, with a done-ding, mic-aware muting, and a simple on/off switch."
+      "description": "macOS only. Hear Claude's replies read aloud, with a done-ding, mic-aware muting, and a simple on/off switch."
     }
   ],
   "description": "Small Claude Code add-ons by Jared Christensen."

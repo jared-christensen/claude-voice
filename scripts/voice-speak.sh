@@ -1,4 +1,5 @@
 #!/bin/bash
+[ "$(uname)" = Darwin ] || exit 0  # macOS only
 # Stop: read Claude's last reply aloud (or just ding when voice is off or the mic is in use).
 dir="$(dirname "$0")"
 . "$dir/lib.sh"

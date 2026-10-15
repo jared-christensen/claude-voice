@@ -1,6 +1,8 @@
 # claude-voice (spoken-replies)
 
-Hear Claude Code's replies read aloud on your Mac. macOS only, uses the built-in `say` command.
+Hear Claude Code's replies read aloud on your Mac.
+
+> **macOS only.** It relies on the built-in `say` and `afplay` commands and CoreAudio. On Windows or Linux the scripts do nothing and exit quietly, so installing it there is harmless but pointless.
 
 - Reads each reply when Claude finishes, in short spoken-friendly sentences.
 - Plays a soft ding before the speech, or instead of it when voice is off or your mic is in use.
@@ -8,6 +10,15 @@ Hear Claude Code's replies read aloud on your Mac. macOS only, uses the built-in
 - Plays a different sound when Claude needs permission or asks a question.
 - Anything Claude puts after a `Below:` line (links, commands) is shown but never spoken.
 - Sending any new prompt cuts off speech.
+
+## Talk instead of type: the full loop
+
+This pairs well with a dictation app. I use [Superwhisper](https://superwhisper.com): I hold a key and talk, it types my words into the Claude Code prompt, and Claude's reply is read back to me in short, plain sentences. I never touch the keyboard. Any voice-to-text tool should work the same way, for example [Wispr Flow](https://wisprflow.ai) or macOS's built-in Dictation. Some of these can also press Return for you after typing, which makes the loop completely hands-free (check your app's settings).
+
+Two details make the loop feel natural:
+
+- **Opening your mic interrupts the speech.** The moment your dictation app starts listening, Claude stops talking, so you can cut in whenever you've heard enough. While your mic is open, new replies play a soft ding instead of speaking over you.
+- **Replies are written for the ear.** When voice is on, a small hook tells Claude on every message that the answer will be read aloud, so it leads with the answer and uses short sentences with no tables, bullet lists or markdown. Links and commands it needs you to see go after a `Below:` line and are never spoken.
 
 ## Install
 

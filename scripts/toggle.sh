@@ -1,4 +1,5 @@
 #!/bin/bash
+[ "$(uname)" = Darwin ] || exit 0  # macOS only
 # usage: toggle.sh voice|ding [on|off]   (no argument flips it)
 . "$(dirname "$0")/lib.sh"
 case "$1" in

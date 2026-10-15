@@ -1,4 +1,5 @@
 #!/bin/bash
+[ "$(uname)" = Darwin ] || exit 0  # macOS only
 # UserPromptSubmit: stop any speech, and tell Claude to write for the ear when voice is on.
 . "$(dirname "$0")/lib.sh"
 pkill -x say

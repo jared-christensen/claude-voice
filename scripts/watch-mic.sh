@@ -1,4 +1,5 @@
 #!/bin/bash
+[ "$(uname)" = Darwin ] || exit 0  # macOS only
 # usage: watch-mic.sh <pid>
 # Kills <pid> (the speech) as soon as the microphone opens; exits when <pid> ends.
 dir="$(dirname "$0")"
