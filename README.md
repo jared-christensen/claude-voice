@@ -71,7 +71,7 @@ Opening your mic to dictate cuts off whatever is being read, so interrupting is 
 
 ## A stop button (optional)
 
-To stop the speech with one key from anywhere, import the Shortcut in `extras/`: download [Stop-Claude-Voice.shortcut](extras/Stop-Claude-Voice.shortcut), double-click it, and click **Add Shortcut**. Then open it in the Shortcuts app, open the **Details** panel (the info icon, top right), and next to **Run with** press the keys you want. I use Control-Option-Period. The shortcut just runs `pkill -x say`, so you can also build it yourself by hand. Sending a new prompt or opening your mic stops the speech too.
+To stop the speech with one key from anywhere, import the Shortcut in `extras/`: download [Stop-Claude-Voice.shortcut](extras/Stop-Claude-Voice.shortcut), double-click it, and click **Add Shortcut**. Then open it in the Shortcuts app, open the **Details** panel (the info icon, top right), and next to **Run with** press the keys you want. I use Control-Option-Period. The shortcut just runs `pkill -x say; exit 0` (the `exit 0` stops Shortcuts from showing an error when nothing is speaking), so you can also build it yourself by hand. It only stops the current speech; voice stays on for the next reply. Sending a new prompt or opening your mic stops the speech too.
 
 ## Configure
 
