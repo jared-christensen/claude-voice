@@ -7,6 +7,7 @@ PAUSE_MS=500        # pause between paragraphs
 DING_SOUND=Pop      # sound when a reply finishes (name from /System/Library/Sounds)
 NOTIFY_SOUND=Bottle # sound when Claude needs permission or has a question
 DING_DELAY=1        # seconds to wait before the ding that precedes speech
+BREVITY="Keep it brief: two to four sentences unless I ask for detail."   # added to the spoken-reply instruction; "" to remove
 MARKER="Below:"     # text after a line with only this marker is never spoken
 [ -f "$HOME/.claude/voice.conf" ] && . "$HOME/.claude/voice.conf"
 VOICE_OFF_FLAG="$HOME/.claude/voice-off"

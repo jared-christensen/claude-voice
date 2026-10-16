@@ -69,6 +69,10 @@ This pairs well with a dictation app. I use [Superwhisper](https://superwhisper.
 
 Opening your mic to dictate cuts off whatever is being read, so interrupting is just a matter of starting to talk.
 
+## A stop button (optional)
+
+To stop the speech with one key from anywhere, import the Shortcut in `extras/`: download [Stop-Claude-Voice.shortcut](extras/Stop-Claude-Voice.shortcut), double-click it, and click **Add Shortcut**. Then open it in the Shortcuts app, open the **Details** panel (the info icon, top right), and next to **Run with** press the keys you want. I use Control-Option-Period. The shortcut just runs `pkill -x say`, so you can also build it yourself by hand. Sending a new prompt or opening your mic stops the speech too.
+
 ## Configure
 
 Everything is optional. To change anything, create `~/.claude/voice.conf` and set just the lines you want (defaults shown):
@@ -81,6 +85,7 @@ PAUSE_MS=500        # pause between paragraphs
 DING_SOUND=Pop      # any name from /System/Library/Sounds
 NOTIFY_SOUND=Bottle # plays when Claude needs permission or has a question
 DING_DELAY=1        # seconds before the ding that precedes speech
+BREVITY="Keep it brief: two to four sentences unless I ask for detail."  # tells Claude how long to talk
 MARKER="Below:"     # text after a line with only this is never spoken
 ```
 
