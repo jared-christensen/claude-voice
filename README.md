@@ -69,11 +69,11 @@ This pairs well with a dictation app. I use [Superwhisper](https://superwhisper.
 
 Opening your mic to dictate cuts off whatever is being read, so interrupting is just a matter of starting to talk.
 
-## A hotkey to mute and unmute (optional)
+## A stop button (optional)
 
-To silence Claude with one key from anywhere, import the Shortcut in `extras/`: download [Toggle-Claude-Voice.shortcut](extras/Toggle-Claude-Voice.shortcut), double-click it, and click **Add Shortcut**. Then open it in the Shortcuts app, open the **Details** panel (the info icon, top right), and next to **Run with** press the keys you want. I use Command-Option-Period.
+To silence Claude with one key from anywhere, import the Shortcut in `extras/`: download [Stop-Claude-Voice.shortcut](extras/Stop-Claude-Voice.shortcut), double-click it, and click **Add Shortcut**. Then open it in the Shortcuts app, open the **Details** panel (the info icon, top right), and next to **Run with** press the keys you want. I use Command-Option-Period.
 
-Press it while Claude is talking and the speech stops and voice turns off. Press it again and voice is back on for the next reply. (It can't resume a sentence mid-way; it takes effect from the next reply.) It simply flips the same flag file as `/spoken-replies:voice`: the script is `if [ -f ~/.claude/voice-off ]; then rm ~/.claude/voice-off; else touch ~/.claude/voice-off; pkill -x say; fi; exit 0`, so you can also build it by hand. Sending a new prompt or opening your mic stops the speech too, without turning voice off.
+Press it while Claude is talking and the speech stops. It changes no settings, so the next reply is spoken normally. The shortcut just runs `pkill -x say; exit 0` (the `exit 0` stops Shortcuts from showing an error when nothing is speaking), so you can also build it by hand. Sending a new prompt or opening your mic stops the speech too.
 
 ## Configure
 
