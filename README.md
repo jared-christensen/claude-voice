@@ -71,7 +71,7 @@ Opening your mic to dictate cuts off whatever is being read, so interrupting is 
 
 ## A stop button (optional)
 
-To silence Claude with one key from anywhere, import the Shortcut in `extras/`: download [Stop-Claude-Voice.shortcut](extras/Stop-Claude-Voice.shortcut), double-click it, and click **Add Shortcut**. Then open it in the Shortcuts app, open the **Details** panel (the info icon, top right), and next to **Run with** press the keys you want. I use Command-Option-Period.
+To silence Claude with one key from anywhere, import the Shortcut in `extras/`: download [Stop-Claude-Voice.shortcut](extras/Stop-Claude-Voice.shortcut), double-click it, and click **Add Shortcut**. Then open it in the Shortcuts app, open the **Details** panel (the info icon, top right), and next to **Run with** press **Command-Option-Period** (⌥⌘.). Period is the Mac's classic "stop" key, and Command-Option together stays clear of most app shortcuts. Using the same keys as everyone else keeps instructions and muscle memory consistent.
 
 Press it while Claude is talking and the speech stops. It changes no settings, so the next reply is spoken normally. The shortcut just runs `pkill -x say; exit 0` (the `exit 0` stops Shortcuts from showing an error when nothing is speaking), so you can also build it by hand. Sending a new prompt or opening your mic stops the speech too.
 
