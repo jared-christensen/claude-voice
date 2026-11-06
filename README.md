@@ -48,7 +48,7 @@ Sending any new prompt also cuts off speech. Voice and sound state live in two f
 
 ## My settings (these are the defaults)
 
-The defaults are the settings I use every day, so most people never need to touch anything: **Ava (Premium)** at **speed 285**, with the speech volume at 60% so I can keep my system volume up, and a one-second ding delay so the ding lands as she starts talking. If Ava isn't installed, it falls back down a list (Zoe, then Alex, then Samantha, then your Mac's default voice).
+The defaults are the settings I use every day, so most people never need to touch anything: **Ava (Premium)** at **speed 260**, with the speech volume at 60% so I can keep my system volume up, and a one-second ding delay so the ding lands as she starts talking. If Ava isn't installed, it falls back down a list (Zoe, then Alex, then Samantha, then your Mac's default voice).
 
 Ava is a free download: System Settings > Accessibility > Spoken Content > System Voice > Manage Voices, then pick Ava (Premium). Premium voices take about a second to start, which is why `DING_DELAY=1` lines the ding up with her first word.
 
@@ -61,7 +61,7 @@ Voices I tried:
 | **Alex** | Built in to every Mac, starts fastest, and holds up best at very high speeds. Less natural, but a great fallback. |
 | Evan (Enhanced), Samantha | Fine, a step below the others. |
 
-About speed: the default is 285, which is brisk but clear, and about as fast as I find comfortable. Past roughly 300 words start to blur. If that's too fast, set `RATE=235` (or 200 for a relaxed pace) in `~/.claude/voice.conf`.
+About speed: the default is 260, which is brisk but easy to follow. Past roughly 300 words start to blur. If that's too fast, set `RATE=235` (or 200 for a relaxed pace) in `~/.claude/voice.conf`; if you like it quicker, try 285.
 
 ## Talk instead of type: the full loop
 
@@ -81,7 +81,7 @@ Everything is optional. To change anything, create `~/.claude/voice.conf` and se
 
 ```
 VOICE="Ava (Premium)|Ava (Enhanced)|Zoe (Premium)|Zoe (Enhanced)|Alex|Samantha"
-RATE=285            # words per minute
+RATE=260            # words per minute
 VOLUME=0.6          # speech volume, independent of system volume
 PAUSE_MS=500        # pause between paragraphs
 DING_SOUND=Pop      # any name from /System/Library/Sounds
