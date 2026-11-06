@@ -5,12 +5,19 @@ dir="$(dirname "$0")"
 . "$dir/lib.sh"
 ding() { nohup "$dir/ding.sh" done "$1" >/dev/null 2>&1 & }
 
+# The replay command's own confirmation reply must not be spoken or saved over the real last reply.
+if [ -f "$SKIP_FLAG" ]; then
+  fresh=$(( $(date +%s) - $(stat -f %m "$SKIP_FLAG") ))
+  rm -f "$SKIP_FLAG"
+  [ "$fresh" -lt 60 ] && exit 0
+fi
+
 [ -f "$VOICE_OFF_FLAG" ] && { ding 0; exit 0; }
 [ ! -f "$MIC_IGNORE_FLAG" ] && [ "$("$dir/mic.sh")" = MIC_IN_USE ] && { ding 0; exit 0; }
 msg=$(jq -r '.last_assistant_message // empty')
 [ -n "$msg" ] || { ding 0; exit 0; }
 
-text=$(printf '%s' "$msg" | MARKER="$MARKER" PAUSE_MS="$PAUSE_MS" perl -0pe '
+printf '%s' "$msg" | MARKER="$MARKER" PAUSE_MS="$PAUSE_MS" perl -0pe '
   my $m = quotemeta($ENV{MARKER});
   s/\n[ \t]*$m.*//s;
   s/```.*?```/ code omitted /gs;
@@ -19,21 +26,5 @@ text=$(printf '%s' "$msg" | MARKER="$MARKER" PAUSE_MS="$PAUSE_MS" perl -0pe '
   s/\[([^\]]*)\]\([^)]*\)/$1/g;
   s{https?://\S+}{link}g;
   s/[*#_>|]//g;
-')
-
-voice_args=()
-installed=$(say -v '?')
-IFS="|" read -ra wanted <<< "$VOICE"
-for v in "${wanted[@]}"; do
-  if grep -q "^$v " <<< "$installed"; then voice_args=(-v "$v"); break; fi
-done
-
-pkill -x say
-[ -f "$MEDIA_OFF_FLAG" ] || "$dir/media.sh" pause
-ding "$DING_DELAY"
-nohup say "${voice_args[@]}" -r "$RATE" "[[volm $VOLUME]] $text" >/dev/null 2>&1 &
-pid=$!
-[ -f "$MEDIA_OFF_FLAG" ] || { "$dir/media.sh" claim "$pid"; nohup "$dir/media.sh" resume "$pid" >/dev/null 2>&1 & }
-# stop speaking as soon as the mic opens
-[ -f "$MIC_IGNORE_FLAG" ] || nohup "$dir/watch-mic.sh" "$pid" >/dev/null 2>&1 &
-exit 0
+' > "$LAST_FILE"
+exec "$dir/speak.sh" "$LAST_FILE"

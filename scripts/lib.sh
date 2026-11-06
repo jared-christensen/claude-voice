@@ -11,6 +11,8 @@ BREVITY="Keep it brief: two to four sentences unless I ask for detail."   # adde
 MARKER="Below:"     # text after a line with only this marker is never spoken
 [ -f "$HOME/.claude/voice.conf" ] && . "$HOME/.claude/voice.conf"
 VOICE_OFF_FLAG="$HOME/.claude/voice-off"
+LAST_FILE="$HOME/.claude/voice-last.txt"                  # the last reply we spoke, for /spoken-replies:replay
+SKIP_FLAG="${TMPDIR:-/tmp}/spoken-replies-skip-next"
 DING_OFF_FLAG="$HOME/.claude/ding-off"
 MEDIA_OFF_FLAG="$HOME/.claude/media-pause-off"   # if present, do not pause your media while speaking
 MIC_IGNORE_FLAG="$HOME/.claude/mic-ignore"   # if present, speak even when the mic is open

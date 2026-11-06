@@ -40,11 +40,12 @@ To see the voice and speed it uses by default, and the other voices I tried, see
 | --- | --- |
 | `/spoken-replies:voice` | Turn voice on or off (no argument flips it) |
 | `/spoken-replies:ding` | Mute or unmute every sound |
+| `/spoken-replies:replay` | Read the last spoken reply again (handy after you interrupt it) |
 | `/spoken-replies:shh` | Stop the current speech, voice stays on |
 | `/spoken-replies:media` | Turn media pausing on or off (pauses playing audio and video while Claude speaks) |
 | `/spoken-replies:mic` | Turn mic awareness on or off. Off means it speaks even while your mic is open, which is handy for screen recordings and demos |
 
-Sending any new prompt also cuts off speech. Voice and sound state live in two flag files, `~/.claude/voice-off`, `~/.claude/ding-off`, `~/.claude/media-pause-off` and `~/.claude/mic-ignore`. If one exists, that feature is off (for mic-ignore, mic awareness is off).
+Sending any new prompt also cuts off speech. The last reply is kept in `~/.claude/voice-last.txt` for replay. Voice and sound state live in two flag files, `~/.claude/voice-off`, `~/.claude/ding-off`, `~/.claude/media-pause-off` and `~/.claude/mic-ignore`. If one exists, that feature is off (for mic-ignore, mic awareness is off).
 
 ## My settings (these are the defaults)
 
